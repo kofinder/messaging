@@ -1,0 +1,657 @@
+{
+  "definitions": {
+    "CampaignNotificationRequest": {
+      "description": "Request Body for GeoGraphic Campaign Notification",
+      "example": {
+        "body": "There are items out of stock. Please refill them now!",
+        "countryISOCode": "MM",
+        "status": "UNREAD",
+        "thumb": "assets/865397d3-2ff4-484a-93c6-355a8c5ea34b-medicine.png",
+        "title": "Out of Stock"
+      },
+      "properties": {
+        "body": {
+          "description": "Message Body",
+          "type": "string"
+        },
+        "countryISOCode": {
+          "description": "Specific Country ISO Code",
+          "type": "string"
+        },
+        "status": {
+          "description": "Message status",
+          "type": "string"
+        },
+        "thumb": {
+          "description": "Message Icon",
+          "type": "string"
+        },
+        "title": {
+          "description": "Message Title",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "thumb",
+        "body",
+        "title",
+        "countryISOCode"
+      ],
+      "title": "GeoGraphic Campaign Notification",
+      "type": "object"
+    },
+    "CommandResponse": {
+      "description": "A user of the app",
+      "properties": {
+        "id": {
+          "description": "ID",
+          "format": "Elixir.Ecto.UUID",
+          "type": "string"
+        },
+        "isUpdated": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "title": "CommandResponse",
+      "type": "object"
+    },
+    "Error": {
+      "description": "Error responses from the API",
+      "properties": {
+        "error": {
+          "description": "The message of the error raised",
+          "type": "string"
+        }
+      },
+      "required": [
+        "error"
+      ],
+      "title": "Errors",
+      "type": "object"
+    },
+    "NotificationRequest": {
+      "description": "POST body for creating a notification",
+      "example": {
+        "body": "There are items out of stock. Please refill them now!",
+        "status": "UNREAD",
+        "thumb": "assets/865397d3-2ff4-484a-93c6-355a8c5ea34b-medicine.png",
+        "title": "Out of Stock"
+      },
+      "properties": {
+        "body": {
+          "description": "firebase refresh token",
+          "type": "string"
+        },
+        "status": {
+          "description": "firebase refresh token",
+          "type": "string"
+        },
+        "thumb": {
+          "description": "firebase refresh token",
+          "type": "string"
+        },
+        "title": {
+          "description": "firebase refresh token",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "thumb",
+        "body",
+        "title"
+      ],
+      "title": "NotificationRequest",
+      "type": "object"
+    },
+    "NotificationResponse": {
+      "description": "Response schema for single notification",
+      "example": {
+        "body": "There are items out of stock. Please refill them now!",
+        "createdAt": "2023-05-15T03:29:33",
+        "id": "0c56ff53-9c7d-4764-91e0-d3a117dc12a2",
+        "shopId": "3e7ce46b-7b92-48ff-a54e-d6cdb30201cc",
+        "status": "UNREAD",
+        "thumb": "assets/865397d3-2ff4-484a-93c6-355a8c5ea34b-medicine.png",
+        "title": "Out of Stock",
+        "updatedAt": "2023-05-15T03:29:33"
+      },
+      "properties": {
+        "body": {
+          "description": "notification message body",
+          "type": "string"
+        },
+        "createdAt": {
+          "description": "Creation timestamp",
+          "format": "datetime",
+          "type": "string"
+        },
+        "id": {
+          "description": "Token ID",
+          "format": "Elixir.Ecto.UUID",
+          "type": "string"
+        },
+        "shopId": {
+          "description": "shop owner id",
+          "format": "Elixir.Ecto.UUID",
+          "type": "string"
+        },
+        "status": {
+          "description": "notification message status (read/unread)",
+          "type": "string"
+        },
+        "thumb": {
+          "description": "notification message icon/image",
+          "type": "string"
+        },
+        "title": {
+          "description": "notification message title",
+          "type": "string"
+        },
+        "updatedAt": {
+          "description": "Update timestamp",
+          "format": "datetime",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "body",
+        "title",
+        "shopId"
+      ],
+      "title": "NotificationResponse",
+      "type": "object"
+    },
+    "NotificationStausResponse": {
+      "properties": {
+        "unRead": {
+          "type": "number"
+        }
+      },
+      "title": "NotificationStausResponse",
+      "type": "object"
+    },
+    "TokenRequest": {
+      "description": "POST body for creating token request",
+      "example": {
+        "createdAt": "2023-05-15T03:29:33",
+        "permission": "Authorized",
+        "platform": "android",
+        "token": "e8QgR6PISQepoPSnV4ZrDg:APA91bEp3nBGrUPFtg-AJX_D9_7QsgE0uHnJhwmSqQztdacJimAW6tC38d1xaSfLQpMdjvg6kyCE2j57xQrZ7bBCs8Be9QgHiL-TEeQtwG4wo_HtmXBgsn-zgIsoF7eA8jW8_X-ddNk7",
+        "updatedAt": "2023-05-15T03:29:33",
+        "userId": "1a38da49-3fc6-4ebe-8f6b-dc562a096cbf"
+      },
+      "properties": {
+        "permission": {
+          "description": "firebase refresh token",
+          "type": "string"
+        },
+        "platform": {
+          "description": "firebase refresh token",
+          "type": "string"
+        },
+        "token": {
+          "description": "firebase refresh token",
+          "type": "string"
+        },
+        "userId": {
+          "description": "User ID",
+          "format": "Elixir.Ecto.UUID",
+          "type": "string"
+        }
+      },
+      "required": [
+        "token",
+        "permission",
+        "platform",
+        "userId"
+      ],
+      "title": "TokenRequest",
+      "type": "object"
+    },
+    "TokenResponse": {
+      "description": "A user of the app",
+      "properties": {
+        "createdAt": {
+          "description": "Creation timestamp",
+          "format": "datetime",
+          "type": "string"
+        },
+        "id": {
+          "description": "Token ID",
+          "format": "Elixir.Ecto.UUID",
+          "type": "string"
+        },
+        "token": {
+          "description": "firebase refresh token",
+          "type": "string"
+        },
+        "updatedAt": {
+          "description": "Update timestamp",
+          "format": "datetime",
+          "type": "string"
+        },
+        "userId": {
+          "description": "User ID",
+          "format": "Elixir.Ecto.UUID",
+          "type": "string"
+        }
+      },
+      "required": [
+        "token",
+        "userId"
+      ],
+      "title": "TokenResponse",
+      "type": "object"
+    }
+  },
+  "info": {
+    "title": "mnp messaging platform",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/v1.0/check_status": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "",
+        "operationId": "MessagingWeb.NotificationController.checkNotificationStatus",
+        "parameters": [
+          {
+            "default": "1a38da49-3fc6-4ebe-8f6b-dc562a096cbf",
+            "description": "User ID",
+            "format": "Elixir.Ecto.UUID",
+            "in": "query",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/NotificationStausResponse"
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Check Notification Status",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/v1.0/create_token": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Creates a new token",
+        "operationId": "MessagingWeb.NotificationController.createToken",
+        "parameters": [
+          {
+            "description": "Token Request",
+            "in": "body",
+            "name": "token",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/TokenRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/TokenResponse"
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Create FCM Token",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/v1.0/initialize": {
+      "get": {
+        "description": "Creates Message",
+        "operationId": "MessagingWeb.NotificationController.initializeNotification",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CommandResponse"
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Create Message for All Shops ",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/v1.0/notifications": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "List all notifications in the database",
+        "operationId": "MessagingWeb.NotificationController.allNotifications",
+        "parameters": [
+          {
+            "default": "1a38da49-3fc6-4ebe-8f6b-dc562a096cbf",
+            "description": "User ID",
+            "format": "Elixir.Ecto.UUID",
+            "in": "query",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": "title",
+            "description": "The property to sort by",
+            "in": "query",
+            "name": "sort_by",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "default": "asc",
+            "description": "The sort direction",
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "in": "query",
+            "name": "sort_direction",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "default": 20,
+            "description": "The sort direction",
+            "in": "query",
+            "name": "limit",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "default": 0,
+            "description": "The sort direction",
+            "in": "query",
+            "name": "skip",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/NotificationResponse"
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "List Notifications",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/v1.0/read_all_notifications/{userId}": {
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Update All Notification message in the database",
+        "operationId": "MessagingWeb.NotificationController.readAllNotifications",
+        "parameters": [
+          {
+            "default": "1a38da49-3fc6-4ebe-8f6b-dc562a096cbf",
+            "description": "User ID",
+            "format": "Elixir.Ecto.UUID",
+            "in": "path",
+            "name": "userId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CommandResponse"
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Read All Notifications",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/v1.0/read_notification/{messageId}": {
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Update Notification message in the database",
+        "operationId": "MessagingWeb.NotificationController.readNotification",
+        "parameters": [
+          {
+            "default": "0c56ff53-9c7d-4764-91e0-d3a117dc12a2",
+            "description": "Message ID",
+            "format": "Elixir.Ecto.UUID",
+            "in": "path",
+            "name": "messageId",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CommandResponse"
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Read Each Notification",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/v1.0/send/{token}": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Send Notification to User Directly",
+        "operationId": "MessagingWeb.NotificationController.send",
+        "parameters": [
+          {
+            "default": "dx4Y5_-UTMudBf3FXGCJSQ:APA91bGDQeHnMGo03PgajOOojhMPx4m4INs4XSm0D0Ht32lXjKwBnw-AmF7oGFzR2THCtRJmp13W0oCEMLAK106ItMOIT9TTfEm3_-EbPg2knuo_qkCYvBV74sslKI5746Aly3yfBE5r",
+            "description": "FCM Token",
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Notification Request",
+            "in": "body",
+            "name": "message",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/NotificationRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/NotificationResponse"
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Sending Notification",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/v1.0/send_all": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Send Notification to All Users",
+        "operationId": "MessagingWeb.NotificationController.sendAll",
+        "parameters": [
+          {
+            "description": "Notification Request",
+            "in": "body",
+            "name": "message",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/NotificationRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/NotificationResponse"
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Sending Notificatiosn",
+        "tags": [
+          "Notification"
+        ]
+      }
+    },
+    "/api/v1.0/send_geographic_campaign_notification": {
+      "post": {
+        "consumes": [
+          "application/json"
+        ],
+        "description": "Send Notification to Users by usining specific country",
+        "operationId": "MessagingWeb.NotificationController.sendGeographicCampaignNotification",
+        "parameters": [
+          {
+            "description": "Campaign Notification Request",
+            "in": "body",
+            "name": "message",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/CampaignNotificationRequest"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/CommandResponse"
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        },
+        "summary": "Sending Geographic Campaign Notificatiosn",
+        "tags": [
+          "Notification"
+        ]
+      }
+    }
+  },
+  "swagger": "2.0"
+}
